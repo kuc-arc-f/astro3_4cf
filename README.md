@@ -6,11 +6,11 @@
 
  date    : 2023/09/03 
 
- update  :
+ update  : 2023/09/03
 ***
 ### Summary
 
-Astro + cloudflare pages , sample
+Astro 3 + Cloudflare pages + tailwindcss , sample
 
 ***
 ### API Server
@@ -24,6 +24,7 @@ https://github.com/kuc-arc-f/d1-project8git
 ```
 PUBLIC_SYSTEM_NAME = "AStro3_4"
 
+PUBLIC_CRYPTO_KEY="123"
 PUBLIC_USER_ID=100
 PUBLIC_API_URL=http://localhost:8787
 PUBLIC_API_KEY="123"

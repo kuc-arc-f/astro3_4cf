@@ -1,4 +1,3 @@
-//import LibCookie from './LibCookie';
 import LibConfig from './LibConfig';
 //
 const HttpCommon = {

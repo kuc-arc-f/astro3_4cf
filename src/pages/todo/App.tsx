@@ -7,6 +7,19 @@ import CrudIndex from './CrudIndex';
 import ShowModal from './ShowModal';
 import EditModal from './EditModal';
 //
+import CryptoJS  from 'crypto-js';
+import AES from 'crypto-js/aes';
+const secretKey = import.meta.env.PUBLIC_CRYPTO_KEY;
+const secretMessage = "1234aaa";
+console.log("secretKey=", secretKey);
+// 暗号化
+const encryptedMessage = AES.encrypt(secretMessage, secretKey).toString();
+console.log("暗号化されたメッセージ:", encryptedMessage);
+// 復号化
+const decryptedBytes = AES.decrypt(encryptedMessage, secretKey);
+const decryptedMessage = decryptedBytes.toString(CryptoJS.enc.Utf8);
+console.log("復号化されたメッセージ:", decryptedMessage);
+//
 const ALERT_ERROS_ID = "alert_error_id_1";
 const ALERT_SUCCESS_ID = "alert_success_id_1";
 const ERROS_MESSAGE_1 = "Error, title input";
@@ -126,10 +139,19 @@ function Page () {
           console.error(e);
         }
     }         
+    //
+    const testCrypt = function () {
+console.log("encryptedMessage:", encryptedMessage);
+        const decryptedBytes = AES.decrypt(encryptedMessage, secretKey);
+        const decryptedMessage = decryptedBytes.toString(CryptoJS.enc.Utf8);
+console.log("復号化されたメッセージ:", decryptedMessage);
+    }
 console.log(updatetime);
     //
     return (
     <div><h3>Todo</h3>
+        <hr />
+        <button onClick={()=>testCrypt()}>[testCrypt]</button><br />
         <span className="d-none">{updatetime}</span>
         <hr />
         <div className="col-sm-12">
