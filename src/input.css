@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* custom_class */
+.container_base {
+  @apply container mx-auto px-8 bg-white;
+}
+/* button */
 .btn {
   @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
 }
-
 .btn-green {
   @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded;
 }
+.btn-blue {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+.btn-red {
+  @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded;
+}
+

@@ -7,19 +7,6 @@ import CrudIndex from './CrudIndex';
 import ShowModal from './ShowModal';
 import EditModal from './EditModal';
 //
-import CryptoJS  from 'crypto-js';
-import AES from 'crypto-js/aes';
-const secretKey = import.meta.env.PUBLIC_CRYPTO_KEY;
-const secretMessage = "1234aaa";
-console.log("secretKey=", secretKey);
-// 暗号化
-const encryptedMessage = AES.encrypt(secretMessage, secretKey).toString();
-console.log("暗号化されたメッセージ:", encryptedMessage);
-// 復号化
-const decryptedBytes = AES.decrypt(encryptedMessage, secretKey);
-const decryptedMessage = decryptedBytes.toString(CryptoJS.enc.Utf8);
-console.log("復号化されたメッセージ:", decryptedMessage);
-//
 const ALERT_ERROS_ID = "alert_error_id_1";
 const ALERT_SUCCESS_ID = "alert_success_id_1";
 const ERROS_MESSAGE_1 = "Error, title input";
@@ -139,27 +126,30 @@ function Page () {
           console.error(e);
         }
     }         
-    //
-    const testCrypt = function () {
-console.log("encryptedMessage:", encryptedMessage);
-        const decryptedBytes = AES.decrypt(encryptedMessage, secretKey);
-        const decryptedMessage = decryptedBytes.toString(CryptoJS.enc.Utf8);
-console.log("復号化されたメッセージ:", decryptedMessage);
-    }
 console.log(updatetime);
     //
     return (
-    <div><h3>Todo</h3>
+    <div className="pb-8">
+        <h3 className="text-4xl font-bold">Todo</h3>
         <hr />
-        <button onClick={()=>testCrypt()}>[testCrypt]</button><br />
         <span className="d-none">{updatetime}</span>
         <hr />
         <div className="col-sm-12">
-            <label>Title: <input id="title" className="form-control" /></label>
-            <label className="ms-2">Content: 
-                <textarea id="content" name="content"  className="form-control" rows={4}
-                placeholder="" ></textarea>
-            </label>        
+            <div className="mb-4">
+                <label className="text-2xl block text-gray-700 font-bold mb-2">Title</label>
+                <input type="text" id="title" name="title"
+                className="border border-gray-400 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500"
+                placeholder="John Doe" required
+                />
+            </div>            
+            <div className="mb-6">
+                <label  className="block text-gray-700 font-bold mb-2">Content</label>
+                <textarea id="content" name="content" 
+                className="border border-gray-400 rounded-md px-3 py-2 w-full h-32 resize-none focus:outline-none focus:border-blue-500"
+                 placeholder="" required
+                ></textarea>
+            </div>
+
             <button onClick={()=>createTodo()} className="btn btn-sm btn-primary ms-2" 
                 >Create</button>        
             </div>
@@ -169,16 +159,17 @@ console.log(updatetime);
         <div key={index}>
             <h3>{item.title}</h3>
             <span>ID: {item.id}, {item.createdAt}</span>
-            <button onClick={()=>openShow(item.id)} className="btn btn-sm btn-outline-primary ms-2">Show
+            <button onClick={()=>openShow(item.id)} className="btn-green ms-2">Show
             </button>
-            <button onClick={()=>openEdit(item.id)} className="btn btn-sm btn-outline-primary ms-2">Edit
+            <button onClick={()=>openEdit(item.id)} className="btn-green ms-2">Edit
             </button>
-            <button onClick={()=>todoDelete(item.id)} className="btn btn-sm btn-outline-danger ms-2" 
+            <button onClick={()=>todoDelete(item.id)} className="btn-red ms-2" 
             >Delete</button>
             <hr />
         </div>
         )
         })}
+        <hr className="mb-8" />
         {/* Alert */}
         <AlertError idName={ALERT_ERROS_ID} message={ERROS_MESSAGE_1} />  
         <AlertSuccess idName={ALERT_SUCCESS_ID} message={SUCCESS_MESSAGE_1} />  
