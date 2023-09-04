@@ -9,7 +9,7 @@ import EditModal from './EditModal';
 //
 const ALERT_ERROS_ID = "alert_error_id_1";
 const ALERT_SUCCESS_ID = "alert_success_id_1";
-const ERROS_MESSAGE_1 = "Error, title input";
+const ERROS_MESSAGE_1 = "Title, input";
 let SUCCESS_MESSAGE_1 = "OK, Save";
 //
 //
@@ -129,41 +129,40 @@ function Page () {
 console.log(updatetime);
     //
     return (
-    <div className="pb-8">
+    <div className="pt-4 pb-8">
         <h3 className="text-4xl font-bold">Todo</h3>
-        <hr />
         <span className="d-none">{updatetime}</span>
-        <hr />
+        <hr className="my-1" />
         <div className="col-sm-12">
-            <div className="mb-4">
+            <div className="mb-2">
                 <label className="text-2xl block text-gray-700 font-bold mb-2">Title</label>
                 <input type="text" id="title" name="title"
                 className="border border-gray-400 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500"
                 placeholder="John Doe" required
                 />
             </div>            
-            <div className="mb-6">
-                <label  className="block text-gray-700 font-bold mb-2">Content</label>
-                <textarea id="content" name="content" 
-                className="border border-gray-400 rounded-md px-3 py-2 w-full h-32 resize-none focus:outline-none focus:border-blue-500"
+            <div className="mb-2">
+                <label  className="text-2xl block text-gray-700 font-bold mb-2">Content</label>
+                <textarea id="content" name="content"
+                className="border border-gray-400 rounded-md px-3 py-2 w-full h-16 resize-none focus:outline-none focus:border-blue-500"
                  placeholder="" required
                 ></textarea>
             </div>
 
-            <button onClick={()=>createTodo()} className="btn btn-sm btn-primary ms-2" 
+            <button onClick={()=>createTodo()} className="btn ms-2" 
                 >Create</button>        
             </div>
-        <hr />
+        <hr className="my-1" />
         {pageItem.map((item: any ,index: number) => {
         return (
         <div key={index}>
-            <h3>{item.title}</h3>
+            <h3 className="text-3xl font-bold">{item.title}</h3>
             <span>ID: {item.id}, {item.createdAt}</span>
             <button onClick={()=>openShow(item.id)} className="btn-green ms-2">Show
             </button>
             <button onClick={()=>openEdit(item.id)} className="btn-green ms-2">Edit
             </button>
-            <button onClick={()=>todoDelete(item.id)} className="btn-red ms-2" 
+            <button onClick={()=>todoDelete(item.id)} className="btn-blue ms-2" 
             >Delete</button>
             <hr />
         </div>
@@ -180,3 +179,11 @@ console.log(updatetime);
     );
 }
 export default Page;
+
+/*
+<hr />
+<div className="alert-error" role="alert">
+    <strong className="font-bold">Holy smokes!</strong><br />
+    <span className="block sm:inline">Something seriously bad happened.</span>
+</div>
+*/

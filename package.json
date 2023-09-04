@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "build-css": "npx tailwindcss -i ./src/input.css -o ./public/styles/output.css",
     "preview": "astro preview",
     "astro": "astro"
   },
