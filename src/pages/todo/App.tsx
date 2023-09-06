@@ -149,7 +149,7 @@ console.log(updatetime);
                 ></textarea>
             </div>
 
-            <button onClick={()=>createTodo()} className="btn ms-2" 
+            <button onClick={()=>createTodo()} className="btn-purple ms-2" 
                 >Create</button>        
             </div>
         <hr className="my-1" />
@@ -158,11 +158,11 @@ console.log(updatetime);
         <div key={index}>
             <h3 className="text-3xl font-bold">{item.title}</h3>
             <span>ID: {item.id}, {item.createdAt}</span>
-            <button onClick={()=>openShow(item.id)} className="btn-green ms-2">Show
+            <button onClick={()=>openShow(item.id)} className="btn-outline-purple ms-2">Show
             </button>
-            <button onClick={()=>openEdit(item.id)} className="btn-green ms-2">Edit
+            <button onClick={()=>openEdit(item.id)} className="btn-outline-purple ms-2">Edit
             </button>
-            <button onClick={()=>todoDelete(item.id)} className="btn-blue ms-2" 
+            <button onClick={()=>todoDelete(item.id)} className="btn-outline-red ms-2" 
             >Delete</button>
             <hr />
         </div>

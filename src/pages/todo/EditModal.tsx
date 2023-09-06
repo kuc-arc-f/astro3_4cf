@@ -68,21 +68,23 @@ console.log(props);
                 <span>{props.pageItem.createdAt}</span>
                 <hr className="my-1" />
                 <div className="col-sm-12">
-                    <label>Title:</label>
-                    <input type="text" name="title" id="update_title" className="form-control"
-                    defaultValue= {props.pageItem.title}  />
+                    <label className="text-2xl font-bold">Title:</label>
+                    <input type="text" id="update_title" name="title"
+                    className="input_text" placeholder="title" required defaultValue= {props.pageItem.title}
+                    />                    
                 </div>
                 <div className="col-sm-12">
-                    <label>Content:</label>
-                    <textarea id="update_content" name="content" className="form-control"
-                    rows={10} placeholder=""
-                    defaultValue={props.pageItem.content}></textarea>
+                    <label className="text-2xl font-bold">Content:</label>
+                    <textarea id="update_content" name="content"
+                    className="input_textarea h-32"
+                    placeholder="" required defaultValue={props.pageItem.content}
+                    ></textarea>                    
                 </div>
             </main>
             <footer className="modal__footer text-end">
-                <button className="btn btn-primary mx-2" onClick={()=>{updateTodo()}}
+                <button className="btn-blue mx-2" onClick={()=>{updateTodo()}}
                 >Save</button>
-                <button className="btn btn-secondary" onClick={()=>{closeModal()}}
+                <button className="btn-gray" onClick={()=>{closeModal()}}
                 >Close</button>
             </footer>
             </div>

@@ -42,7 +42,7 @@ console.log(props);
                 <pre className="pre_text">{props.pageItem.content}</pre>
             </main>
             <footer className="modal__footer">
-                <button className="modal__btn modal__btn-primary" onClick={()=>{closeModal()}}
+                <button className="btn-gray" onClick={()=>{closeModal()}}
                 >Close</button>
             </footer>
             </div>
