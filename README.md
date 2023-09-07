@@ -6,11 +6,11 @@
 
  date    : 2023/09/03 
 
- update  : 2023/09/08
+ update  : 2023/09/08 
 ***
 ### Summary
 
-Astro 3 + Cloudflare pages + tailwindcss , sample
+Astro 3 + D1 + Cloudflare pages + tailwindcss , sample
 
 ***
 ### API Server
